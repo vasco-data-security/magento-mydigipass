@@ -1,0 +1,19 @@
+<h1>Please wait</h1>
+<div id="loadingmask" style="display: none;">
+    <div class="loader" id="loading-mask-loader"><img src="<?php echo str_replace("index.php/", "", $this->getUrl()) ?>skin/frontend/default/default/images/opc-ajax-loader.gif" alt="<?php echo $this->__('Loading...') ?>"/><?php echo $this->__('Loading...') ?></div>
+    <div id="loading-mask"></div>
+</div>
+<script type="text/javascript">
+    /*Please note that the URL is created in reloadurl. Also see that the response text will be echoed in div with id=output-div*/
+    function userLogin() {
+        var reloadurl = '<?php echo $this->getUrl('mydigipass/digipass/process') ?>';
+        $('loadingmask').show();
+        var params = document.URL.toQueryParams()
+        new Ajax.Request(reloadurl, {
+            method: 'post',
+            parameters: params
+        });
+    }
+    
+    userLogin();
+</script>

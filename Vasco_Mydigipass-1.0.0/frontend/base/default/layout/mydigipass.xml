@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="top.links">
+            <action method="setTemplate" ifconfig="digipass/general/enabled" ifvalue="1">
+                <template>mydigipass/links.phtml</template>
+            </action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" template="mydigipass/js.phtml" />
+        </reference>      
+    </default>
+
+    <customer_account_login translate="label">
+        <reference name="customer_form_login">
+            <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml">
+                <action method="setTemplate" ifconfig="digipass/general/enabled">
+                    <template>mydigipass/login.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </customer_account_login>
+    
+    <customer_account_index>
+        <reference name="my.account.wrapper">
+            <reference name="customer_account_dashboard">
+                <block type="customer/account_dashboard_info" name="customer_account_dashboard_info" as="info" template="mydigipass/customer/account/dashboard/info.phtml"/>
+            </reference>
+        </reference>
+    </customer_account_index>
+    
+    <customer_account_create>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>customer_form_register</name>
+            </action>
+            <block type="customer/form_register" name="customer_form_register" template="mydigipass/customer/form/register.phtml" />
+        </reference>
+    </customer_account_create>
+
+    <customer_account_edit>
+        <reference name="customer_edit">
+            <action method="setTemplate">
+                <template>mydigipass/customer/form/edit.phtml</template>
+            </action>
+        </reference>
+    </customer_account_edit>
+    
+    <customer_address_form>
+        <reference name="customer_address_edit">
+            <action method="setTemplate">
+                <template>mydigipass/customer/address/edit.phtml</template>
+            </action>
+        </reference>
+    </customer_address_form>
+    
+    <checkout_onepage_index translate="label">
+        <reference name="checkout.onepage">
+            <block type="checkout/onepage_login" name="checkout.onepage.login" as="login" template="checkout/onepage/login.phtml">
+                <action method="setTemplate" ifconfig="digipass/general/enabled" ifvalue="1">
+                    <template>mydigipass/checkoutlogin.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_index>
+    
+    <!--<mydigipass_digipass_callback>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="mydigipass_digipass_callback" output="toHtml" template="mydigipass/wait.phtml"></block>
+        </reference>
+    </mydigipass_digipass_callback>-->
+</layout>

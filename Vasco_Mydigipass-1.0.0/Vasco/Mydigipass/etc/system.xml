@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <digipass translate="label">
+            <label>MyDIGIPASS</label>
+            <tab>customer</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>135</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <comment>Enable or disable the MyDIGIPASS login</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled>
+                        <client_id translate="label">
+                            <label>Client ID</label>
+                            <comment><![CDATA[Your client id, acquired from VASCO.]]>
+                            </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </client_id>
+                        <client_secret translate="label">
+                            <label>Client Secret</label>
+                            <comment><![CDATA[Your client secret, acquired from VASCO.]]>
+                            </comment>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </client_secret>
+                        <callback_url translate="label">
+                            <label>Callback URL</label>
+                            <comment><![CDATA[The callback URL returned to after authentication.]]>
+                            </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-url</validate>
+                        </callback_url>
+                        <live translate="label">
+                            <label>Sandbox/Live</label>
+                            <comment><![CDATA[Whether to use the test environment or the production environment.]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_live</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </live>
+                        <auto_account translate="label">
+                            <label>Automatic Account Creation</label>
+                            <comment>
+                                Customer account creation without going through the standard customer registration flow (simplifies registration process).
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </auto_account>
+                        <local_auth translate="label">
+                            <label>Local Authentication</label>
+                            <comment>Leave local Magento authentication enabled for accounts which are linked to MyDigipass.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_localauth</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </local_auth>
+                    </fields>
+                </general>
+                <button_style>
+                    <label>Button styles</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <header translate="label">
+                            <label>Header Button Style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_style</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </header>
+                        <header_text translate="label">
+                            <label>Header Button Text</label>
+                            <comment>Irrelevant when using default or small button style.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_text</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </header_text>
+                        <login translate="label">
+                            <label>Registration/Login Page Button Style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_style</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </login>
+                        <login_text translate="label">
+                            <label>Registration/Login Page Button Text</label>
+                            <comment>Irrelevant when using default or small button style.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_text</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </login_text>
+                        <account translate="label">
+                            <label>My Account Page Button Style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_style</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </account>
+                        <account_text translate="label">
+                            <label>My Account Page Button Text</label>
+                            <comment>Irrelevant when using default or small button style.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_text</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </account_text>
+                        <checkout translate="label">
+                            <label>Checkout Page Button Style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_style</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </checkout>
+                        <checkout_text translate="label">
+                            <label>Checkout Page Button Text</label>
+                            <comment>Irrelevant when using default or small button style.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_button_text</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </checkout_text>
+                    </fields>
+                </button_style>
+                <profile_fields>
+                    <label>Profile fields</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <firstname translate="label">
+                            <label>First Name</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </firstname>
+                        <lastname translate="label">
+                            <label>Last Name</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </lastname>
+                        <telephone translate="label">
+                            <label>Telephone</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </telephone>
+                        <email translate="label">
+                            <label>E-mail</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_requiredforced</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </email>
+                        <dob translate="label">
+                            <label>Date of Birth</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </dob>
+                        <city translate="label">
+                            <label>City</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </city>
+                        <zip translate="label">
+                            <label>Zip</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </zip>
+                        <country translate="label">
+                            <label>Country</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </country>
+                        <address translate="label">
+                            <label>Address Lines</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mydigipass/source_profile_norequiredforced</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </address>
+                    </fields>
+                </profile_fields>
+            </groups>
+        </digipass>
+    </sections>
+</config>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Vasco_Mydigipass>
+             <active>true</active>
+             <codePool>community</codePool>
+             <depends>
+             </depends>
+        </Vasco_Mydigipass>
+    </modules>
+</config>
