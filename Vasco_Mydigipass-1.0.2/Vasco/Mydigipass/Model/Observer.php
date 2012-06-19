@@ -47,12 +47,13 @@ class Vasco_Mydigipass_Model_Observer
             $customer->setDigipassUuid($post['digipassUuid']);
             
             $keys = array_keys($userData);
-            if (in_array('street', $keys) && in_array('city', $keys) && in_array('countryId', $keys)) { // more info than name?
+            if (in_array('street', $keys) && in_array('city', $keys) && in_array('country_id', $keys)) { // check if it's sensible to create an address
                 $address = Mage::getModel('customer/address');
-                foreach ($userData as $key => $value) {
-                    $methodName = 'set' . ucfirst($key);
-                    $address->$methodName($value);
-                }
+                $address->setData($userData);
+//                foreach ($userData as $key => $value) {
+//                    $methodName = 'set' . ucfirst($key);
+//                    $address->$methodName($value);
+//                }
                 $address->setIsDefaultBilling('1')
                         ->setIsDefaultShipping('1');
                 $customer->addAddress($address);

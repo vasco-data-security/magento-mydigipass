@@ -46,7 +46,11 @@
  */
 $request = Mage::app()->getRequest();
 if (get_class($this->getObject()) == 'Mage_Customer_Model_Address') {
-    if ($this->getObject()->getId() == $this->getObject()->getCustomer()->getDefaultBilling()) {
+    if ($this->getObject()->getCustomer() == false) {
+        //do nothing, this is a new address.
+        $firstnameDisabled = '';
+        $lastnameDisabled = '';
+    } else  if ($this->getObject()->getId() == $this->getObject()->getCustomer()->getDefaultBilling()) {
         $fieldConfig = Mage::helper('mydigipass')->getFieldConfig();
         $firstnameDisabled = ($fieldConfig['firstname'] == 2) ? 'readonly="readonly"' : '';
         $lastnameDisabled = ($fieldConfig['lastname'] == 2) ? 'readonly="readonly"' : '';

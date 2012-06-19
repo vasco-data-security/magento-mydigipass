@@ -53,6 +53,7 @@ class Vasco_Mydigipass_Model_Digipass extends Mage_Core_Model_Abstract
                             $result = 'linked';
                         } else {
                             $result = $this->formatUserData('new', $userData);
+                            Mage::log($result);
                             $session->setUserdata($result);
                         }
                     }
@@ -157,18 +158,21 @@ class Vasco_Mydigipass_Model_Digipass extends Mage_Core_Model_Abstract
             'uuid' => 'mydigipass',
             'city' => 'city',
             'state' => 'state',
-            'country' => 'countryId',
+            'country' => 'country_id',
             'address_1' => 'street',
-            'address_2' => 'street'
+            'address_2' => 'street',
+            'zip' => 'postcode',
+            'phone_number' => 'telephone',
         );
         $fieldConfig = $this->digipassHelper()->getFieldConfig();
 
         $result = array('type' => $type);
         foreach ($userData as $key => $value) {
-            if ($fieldConfig[$mapping[$key]]) {
+            Mage::log($key . ' => ' . $mapping[$key]);
+            if (!empty($fieldConfig[$mapping[$key]])) {
                 if ($mapping[$key] == 'street') {
                     $result[$mapping[$key]][] = $value;
-                } else if ($mapping[$key] == 'countryId') {
+                } else if ($mapping[$key] == 'country_id') {
                     $result[$mapping[$key]] = $this->getCountryCode($userData['country']);
                 } else {
                     $result[$mapping[$key]] = $value;
@@ -176,6 +180,7 @@ class Vasco_Mydigipass_Model_Digipass extends Mage_Core_Model_Abstract
             }
         }
 
+        Mage::log($result);
         return $result;
     }
 

@@ -75,9 +75,10 @@ class Vasco_Mydigipass_Helper_Data extends Mage_Core_helper_Abstract
         $config['dob'] = Mage::getStoreConfig('digipass/profile_fields/dob');
         $config['email'] = (Mage::getStoreConfig('digipass/profile_fields/email')) ? Mage::getStoreConfig('digipass/profile_fields/email') : 1;
         $config['city'] = Mage::getStoreConfig('digipass/profile_fields/city');
-        $config['state'] = Mage::getStoreConfig('digipass/profile_fields/zip');
-        $config['countryId'] = Mage::getStoreConfig('digipass/profile_fields/country');
+        $config['postcode'] = Mage::getStoreConfig('digipass/profile_fields/zip');
+        $config['country_id'] = Mage::getStoreConfig('digipass/profile_fields/country');
         $config['street'] = Mage::getStoreConfig('digipass/profile_fields/address');
+        $config['telephone'] = Mage::getStoreConfig('digipass/profile_fields/telephone');
         $config['mydigipass'] = 1;
 
         return $config;
