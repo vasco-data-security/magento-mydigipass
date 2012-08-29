@@ -45,15 +45,11 @@ class Vasco_Mydigipass_Model_Observer
             $customer->setWebsiteId(Mage::app()->getStore()->getWebsiteId());
             $customer->loadByEmail($post['email']);
             $customer->setDigipassUuid($post['digipassUuid']);
-            
+
             $keys = array_keys($userData);
             if (in_array('street', $keys) && in_array('city', $keys) && in_array('country_id', $keys)) { // check if it's sensible to create an address
                 $address = Mage::getModel('customer/address');
                 $address->setData($userData);
-//                foreach ($userData as $key => $value) {
-//                    $methodName = 'set' . ucfirst($key);
-//                    $address->$methodName($value);
-//                }
                 $address->setIsDefaultBilling('1')
                         ->setIsDefaultShipping('1');
                 $customer->addAddress($address);
@@ -76,9 +72,9 @@ class Vasco_Mydigipass_Model_Observer
         // Link user after successful login
         $session = Mage::getSingleton('customer/session');
         $login = Mage::app()->getRequest()->getPost('login');
-		$customer = $session->getCustomer();
+        $customer = $session->getCustomer();
         $digipassUuid = $customer->getDigipassUuid();
-        if ($login['mydigipass'] != '') {    
+        if ($login['mydigipass'] != '') {
             if ($digipassUuid != '') {
                 if ($login['mydigipass'] != '') {
                     if ($login['mydigipass'] != $digipassUuid) { // user has revoked access via mydigipass and is trying to link
@@ -102,11 +98,11 @@ class Vasco_Mydigipass_Model_Observer
                 }
             }
         } else {
-			if ($digipassUuid != '' && !$this->digipassHelper()->getLocalAuthAllowed()) {
-				$session->logout();
-				$session->getMessages(true); // clear other messages such as invalid login, etc...
-				$session->addNotice($this->digipassHelper()->__('Local login is disabled, please use MyDIGIPASS to log in.'));
-			}
+            if ($digipassUuid != '' && !$this->digipassHelper()->getLocalAuthAllowed()) {
+                $session->logout();
+                $session->getMessages(true); // clear other messages such as invalid login, etc...
+                $session->addNotice($this->digipassHelper()->__('Local login is disabled, please use MyDIGIPASS to log in.'));
+            }
         }
     }
 

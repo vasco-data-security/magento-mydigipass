@@ -29,7 +29,7 @@ class Vasco_Mydigipass_Model_Digipass extends Mage_Core_Model_Abstract
                         ->addAttributeToFilter('digipass_uuid', $userData['uuid']);
                 if (count($collection) == 1) { // linked user
                     foreach ($collection as $customer) {
-                        if (!Mage::getConfig('customer/account_share/scope') || $customer->getWebsiteId() == Mage::app()->getStore()->getWebsiteId()) {
+                        if (!Mage::getStoreConfig('customer/account_share/scope') || $customer->getWebsiteId() == Mage::app()->getStore()->getWebsiteId()) {
                             $session->setCustomerAsLoggedIn($customer);
                             $result = 'linked';
                         } else { // accounts not shared, so register on the current store
