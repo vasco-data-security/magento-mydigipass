@@ -13,7 +13,21 @@ The plugin can directly be installed from the Magento Connect Market place.
 
 http://www.magentocommerce.com/magento-connect/mydigipass-com-secure-login-7270.html
 
+If you are unsure how to install modules in Magento, this tutorial provides a detailed walk-through:
 
+http://www.siteground.com/tutorials/magento/magento_connect.htm
+
+To get started using the module you need to get a *client_id* and a *client_secret* from http://developer.mydigipass.com.
+
+When you register an application, you will be asked for a callback URL. This will usually be:
+
+https://yourdomain.com/mydigipass/digipass/callback
+
+If you have set up multiple domains you should use the "Global website URL" configured in the Magento back-end. The module will ensure that the user is redirected back to the correct website/storeview after authentication.
+
+Note that when you register the application on the developer site, you are using the sandbox environment.
+
+When you are ready to go live  you can request your production environment details via the site.
 
 # License
 
